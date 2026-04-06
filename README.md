@@ -17,9 +17,12 @@ Plantilla base para proyectos Node.js + Express.
     │   └── example.routes.js      # Ejemplo de ruta
     ├── controllers/
     │   └── example.controller.js  # Ejemplo de controlador
-    └── middlewares/
-        ├── errorHandler.js        # Manejo de errores global
-        └── notFound.js            # Rutas no encontradas (404)
+    ├── middlewares/
+    │   ├── errorHandler.js        # Manejo de errores global
+    │   ├── notFound.js            # Rutas no encontradas (404)
+    │   └── validateJson.js        # Validación de JSON malformado
+    └── utils/
+    └── response.js            # Helpers para respuestas estándar ({ data } / { error })
 
 ## Inicio rápido
 ```bash
