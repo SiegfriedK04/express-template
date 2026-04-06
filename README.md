@@ -9,7 +9,8 @@ Plantilla base para proyectos Node.js + Express.
 - **Paquetes incluidos**: dotenv, cors, morgan, nodemon
 
 ## Estructura
-src/
+
+    src/
     ├── app.js                     # Entrada principal
     ├── routes/
     │   ├── index.js               # Router central
@@ -40,10 +41,33 @@ Prueba el endpoint de ejemplo en: `GET /api/example`
 
 ## Agregar una nueva ruta
 
-1. Crear `src/controllers/nuevo.controller.js`
-2. Crear `src/routes/nuevo.routes.js`
-3. Registrarla en `src/routes/index.js`:
+Cada ruta sigue este flujo: **controller → route → registro en index**.
+
+**1. Crear el controller** en `src/controllers/nuevo.controller.js`
+```js
+const getNuevo = (req, res) => {
+  res.json({ message: "Respuesta de la nueva ruta" });
+};
+
+module.exports = { getNuevo };
+```
+
+**2. Crear el archivo de rutas** en `src/routes/nuevo.routes.js`
+```js
+const { Router } = require("express");
+const { getNuevo } = require("../controllers/nuevo.controller");
+
+const router = Router();
+
+router.get("/", getNuevo);
+
+module.exports = router;
+```
+
+**3. Registrarla** en `src/routes/index.js`
 ```js
 const nuevaRuta = require("./nuevo.routes");
 router.use("/nuevo", nuevaRuta);
 ```
+
+El endpoint quedará disponible en: `GET /api/nuevo`
