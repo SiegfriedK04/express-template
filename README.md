@@ -10,15 +10,15 @@ Plantilla base para proyectos Node.js + Express.
 
 ## Estructura
 src/
-├── app.js                    # Entrada principal
-├── routes/
-│   ├── index.js              # Router central (registrar rutas aquí)
-│   └── example.routes.js     # Ejemplo de ruta
-├── controllers/
-│   └── example.controller.js # Ejemplo de controlador
-└── middlewares/
-├── errorHandler.js       # Manejo de errores global
-└── notFound.js           # Rutas no encontradas (404)
+    ├── app.js                     # Entrada principal
+    ├── routes/
+    │   ├── index.js               # Router central
+    │   └── example.routes.js      # Ejemplo de ruta
+    ├── controllers/
+    │   └── example.controller.js  # Ejemplo de controlador
+    └── middlewares/
+        ├── errorHandler.js        # Manejo de errores global
+        └── notFound.js            # Rutas no encontradas (404)
 
 ## Inicio rápido
 ```bash
